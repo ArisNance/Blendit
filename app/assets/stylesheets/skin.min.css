@@ -1,0 +1,199 @@
+.mce-menu-item .mce-ico, .mce-menu-item .mce-text{
+    color: #f0f0f0;
+}
+
+/*Preview Model*/
+#mce-modal-block.mce-in{
+    opacity: .4;
+}
+
+#lipsum > p:nth-child(2) {
+    background-color: #64fbc0 !important;
+    font-size:5em !important;
+}
+
+.mce-panel {
+    background-color: #36D7B7;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+}
+
+.tiny-content {
+    font-size: 5em;
+}
+/*Icons top*/
+.mce-menubar .mce-menubtn button span{
+    color: #fff;
+}
+
+/*Menu buttons*/
+
+.mce-btn {
+    background-color: #323436;
+    opacity: 0.5;
+    border: none;
+}
+
+.mce-btn:hover{
+    opacity: 5;
+}
+
+.mce-btn:hover, .mce-btn:focus{
+    background-color: #36D7B7;
+    border-color: #36D7B7;
+}
+
+/*Menu buttons top*/
+.mce-menubar .mce-menubtn button{
+    opacity:0.9;
+}
+
+.mce-btn .mce-txt{
+    font-size: 25px;
+    font-family: 'Rasa'
+}
+
+.mce-menubar .mce-menubtn button:hover{
+    opacity: 5 !important;
+    background-color: #36D7B7;
+}
+
+/*Icons bottom*/
+
+.mce-ico {
+    color: #BF55EC;
+    font-size: 18px;
+}
+
+#mceu_14 {
+    border:none;
+}
+
+/*Index Page Card Display*/
+.blue-grey.darken-1 {
+    position: absolute;
+    margin-top: -38% !important;
+}
+
+.card .card-action{
+    padding: 58px !important;
+}
+
+.btn-large{
+    margin-left: 70px;
+    margin-right: -50px;
+}
+
+/*Story card display*/
+#story-btn{
+    margin-right: initial;
+}
+
+#story-btn1{
+    margin-right:;
+}
+
+.teal{
+    background-color: #0089ec !important;
+}
+
+/*Menu container - may have to clean up the other buttons - Css may just be here*/
+.mce-container {
+    background: #323436;
+    
+}
+/*Title/Description input*/
+input[type=text] {
+    border-bottom: none;
+    letter-spacing: 3.5px;
+    text-align: center;
+    font-family: 'Rasa';
+    font-size: 3rem;
+}
+
+div.field, div.actions {
+    margin-bottom: 10%;
+}
+
+/*Stories show title*/
+a:hover{
+    background-color: #0089EC;
+}
+
+.card-panel{
+    box-shadow: none !important;
+}
+
+#mceu_38{
+    left: 150px;
+    top: 14px;
+    width: 157px;
+}
+
+#mceu_37-al .mce-label{
+    
+}
+
+.mce-checkbox .mce-label{
+    display: none;
+}
+
+.mce-checked i.mce-i-checkbox{
+    
+}
+
+i.mce-i-checkbox{
+    margin-left: 135px !important;
+}
+
+#search{
+    margin-top: 50%;
+    border-bottom: none;
+}
+
+/*Image Gallery*/
+.people{
+    background:url('https://source.unsplash.com/category/people') center no-repeat;background-size:cover;
+    height: 150px;
+    text-align: center;
+    opacity: 0.8;
+    padding-top: 70px;
+    margin-bottom: 2px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.nature{
+    background:url('https://source.unsplash.com/category/nature') center no-repeat;background-size:cover;
+    width: 150px;
+    float: right;
+    height: 150px;
+    text-align: center;
+    opacity: 0.8;
+    padding-top: 70px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.food{
+    background:url('https://source.unsplash.com/category/food') center no-repeat;background-size:cover;
+    height: 150px;
+    text-align: center;
+    opacity: 0.8;
+    width: 165px;
+    padding-top: 70px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.buildings{
+    background:url('https://source.unsplash.com/category/buildings') center no-repeat;background-size:cover;
+    height: 150px;
+    text-align: center;
+    opacity: 0.8;
+    padding-top: 70px;
+    margin-top: 2px;
+    font-size: 18px;
+    text-transform: uppercase;
+}

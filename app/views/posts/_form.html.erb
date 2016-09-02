@@ -1,0 +1,74 @@
+<!--<%= form_for(@post) do |f| %>-->
+<!--  <% if @post.errors.any? %>-->
+<!--    <div id="error_explanation">-->
+<!--      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>-->
+<!--      <ul>-->
+<!--      <% @post.errors.full_messages.each do |message| %>-->
+<!--        <li><%= message %></li>-->
+<!--      <% end %>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  <% end %>-->
+<!--  <div class="field">-->
+<!--    <%= f.label :title %>-->
+<!--    <%= f.text_field :title %><br>-->
+<!--    <%= f.label :description %>-->
+<!--    <%= f.text_field :description %><br>-->
+<!--    <%= f.label :content %>-->
+<!--    <%= f.text_field :content %>-->
+<!--  </div>-->
+<!--  <div class="actions">-->
+<!--    <%= f.submit %>-->
+<!--  </div>-->
+<!--<% end %>-->
+
+<!--TinyMCE Demo-->
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<!--TinyMCE End-->
+
+<%= stylesheet_link_tag 'skin.min.css' %>
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "title-show" %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <!--<%= f.label :content, class: "tiny-content" %><br>-->
+    <%= raw f.text_area :content, class: "editable" %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "" do %>
+      Update<i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="Update"></i>
+    <% end %>
+  </div>
+<% end %>
+<script>
+
+  tinymce.init({
+  selector: '.editable',  // change this value according to your HTML
+  plugins: 'advlist autolink link image lists charmap preview textcolor emoticons fullscreen wordcount pagebreak',
+  wordcount_cleanregex: /[0-9.(),;:!?%#$?\x27\x22_+=\\/\-]*/g,
+  toolbar: 'forecolor backcolor emoticons fullscreen pagebreak',
+  height: 400,
+  content_style: "p {font-size: 25px;}",
+  imagetools_toolbar: "rotateleft rotateright | flipv fliph | editimage imageoptions"
+});
+
+
+</script>

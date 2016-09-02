@@ -1,0 +1,148 @@
+body {
+  background:rgb(50, 52, 54);
+  padding:0px;
+  margin:0px;
+  font-family:Arial;
+  font-size:13px;
+  color:#fff;
+}
+h1,h2,h3,h4,h5 {
+  margin:0px;
+  padding:0px;
+}
+pre {
+  white-space: pre-line;
+}
+p {
+  line-height:25px;
+  margin:0px;
+}
+a {
+  cursor:pointer;
+  text-decoration:none;
+}
+.menu {
+  background:#2c3e50;
+  height:60px;
+}
+.menu ul {
+  width:1200px;
+  margin:0px auto;
+  padding:0px;
+}
+.menu ul li{
+  float:left;
+  list-style:none;
+  display:inline;
+}
+.menu ul li.right{
+  float:right;
+  font-size:21px;
+}
+.menu ul li.right i{
+  color:#ccc;
+}
+.menu ul li.active a{
+  color:#FFF;
+}
+.menu ul li a{
+  height:60px;
+  line-height:60px;
+  padding:0 10px;
+  display:block;
+  color:#ddd;
+  text-transform:capitalize;
+}
+.menu ul li a:hover{
+  color:#fff;
+}
+
+
+
+
+.message_holder {
+  background:#fdfdfd;
+  border-bottom:solid 1px #ddd;
+}
+.message_holder .message {
+  width:1200px;
+  height:45px;
+  line-height:45px;
+  margin:0 auto;
+}
+.container {
+  width:1200px;
+  margin: 0 auto;
+  margin-top:20px;
+  position:relative;
+  height:100%;
+}
+#posts {
+  width:1250px;
+  margin: 0 auto;
+  position: relative;
+}
+.post {
+  width:350px;
+  margin: 0 20px 20px 0;
+  float:left;
+  background: #fff;
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.05);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.05);
+  border-radius:3px;
+  float: left;
+}
+.post img{
+  border-radius:3px 3px 0 0;
+  max-width:100%; 
+}
+#posts .post p{
+  line-height: 24px;
+  font-size: 14px;
+  color: #555;
+  font-weight: 400;
+  padding: 10px 12px 12px 12px;
+}
+#more {
+  width:1200px;
+  margin: 0 auto;  
+  padding-top:20px;
+  margin-bottom:20px;
+  position:relative;
+  height:80px;
+}
+.more {
+  background: transparent;
+  padding:15px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  border-radius:50%;
+  display:inline-block;
+  color:#fff;
+  text-align:center;
+  text-transform:uppercase;
+  font-size:11px;
+  margin:0 auto;
+  position:absolute;
+  left:0px;
+  right:0px;
+}
+.more:hover {
+  background: transparent;
+}
+
+/*story show page*/
+#storytitle{
+  text-align: center;
+  margin-top: 5%;
+  font-family: 'Lora', serif;
+  letter-spacing: 3px !important;
+  font-size: 50px !important;
+  opacity: 0.8;
+}
+
+#storycontent{
+  text-align: center !important;
+  margin-top: 20%;
+}

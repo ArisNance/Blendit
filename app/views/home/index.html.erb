@@ -1,0 +1,546 @@
+    
+    <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>Welcome to BlendIt</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="http://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
+<script defer src="http://code.getmdl.io/1.2.0/material.min.js"></script>
+
+<!--TinyMCE Demo-->
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea', 
+                       height: 400
+});
+  plugins: [
+    'advlist autolink lists link image charmap print preview anchor',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media table contextmenu paste code'
+  ]
+  
+</script>
+<!--TinyMCE End-->
+<style>
+iframe {width:100%; height:500px;border:0;}
+#comment-wrap {background:#fff;position:relative}
+#comments #comment-wrap{display:none;z-index:5;padding:10px}
+#comments:hover #comment-wrap {display:block}
+#comments{
+  position: absolute;
+  margin-top: 30px;
+  text-decoration: none;
+}
+.btn-round {
+  border-radius: 15px;
+}
+</style>
+<!--Style End-->
+</head>
+   <body id="home">
+     <!--Horizontal FAB Links-->
+  <!--    <div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">-->
+  <!--  <a class="btn-floating btn-medium red">-->
+  <!--    <i class="large material-icons">perm_identity</i>-->
+  <!--  </a>-->
+  <!--  <ul>-->
+       <!--Rails Material icons Stories all-->
+  <!--    <%= link_to edit_user_registration_path, class: "btn-floating purple", style: "margin-right: 15px;" do %>-->
+  <!--    <i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="Account">settings</i>-->
+  <!--    <% end %>-->
+       <!--Rails Material icons User Stories all-->
+      <!--<%= link_to @story_path, class: "btn-floating purple" do %>-->
+      <!--<% end %>-->
+      <!--icon Poem end-->
+      
+      <!--Rails Material icons User Stories-->
+  <!--    <%= link_to new_story_path, class: "btn-floating green", style: "margin-right: 15px;" do %>-->
+  <!--    <i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="New Story">mode_edit</i>-->
+  <!--    <% end %>-->
+      <!--icon Story end-->
+      
+      <!--Rails Material icons Poem-->
+      
+  <!--    <%= link_to new_post_path, class: "btn-floating purple", style: "margin-right: 5px;" do %>-->
+  <!--    <i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="New Poem">note_add</i>-->
+  <!--    <% end %>-->
+      <!--icon Poem end-->
+  <!--  </ul>-->
+  <!--</div>-->
+  <!--Horizontal FAB Links End-->
+  
+     <!--Type.js  -->
+        <p class="valign-wrapper" id="type">Where will your story begin
+          <a href="#" title="" style="margin-left: 12px;">?</a> 
+        <span id="blink">|</span></p> 
+    
+    <!-- Home -->
+    <div class="row intro valign-wrapper greenpic shades-text text-white no-margin">
+      <div class="row">
+       <%= link_to 'SignUp', new_user_registration_path, class: "waves-effect waves-light btn-large light accent-2 primo-btn", style: "color: #3b20aa;" %>
+        <a href="#start" class="waves-effect waves-light btn-large light accent-1" style="color: #3b20aa;"><i class="material-icons right"></i>How it Works</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Start -->
+  <div class="row no-margin" id="start">
+    <div class="col s12 m6 l6">
+      <section class="container section no-pad-top">
+        <h3>Write & Share</h3>
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+        <br>
+        <%= link_to 'Learn More', new_user_registration_path, class: "waves-effect waves-light btn-large light-blue accent-2 primo-btn", id: "modalwhite" %>
+        <!--<a href="http://github.com/lbluigi/primo-material" class="waves-effect waves-light btn-large light-blue accent-2 primo-btn" target="_blank"><i class="material-icons right"></i>Learn More</a>-->
+      </section>
+    </div>
+
+    <div class="col s12 m6 l6 primo-start-1">
+      <h2 id="calm">Blending your creativity<br />with the world.</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m6 l6 push-m6 push-l6">
+      <section class="container section no-pad-top">
+        <h3>Blend Creatively</h3>
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+        <br>
+        <%= link_to 'SignUp', new_user_registration_path, class: "waves-effect waves-light btn-large light-blue accent-2 primo-btn", id: "modalwhite" %>
+      </section>
+    </div>
+
+    <div class="col s12 m6 l6 pull-m6 pull-l6 primo-start-2">
+
+    </div>
+
+  <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" style="margin-top:50px; margin-left: 45%; background-color: #fff; color: #3b20aa;" href="#modal1">Demo Blend</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Advance Editing</h4>
+      
+
+<textarea>
+  <p style="text-align: center;">
+    <img title="TinyMCE Logo" src="//www.tinymce.com/images/glyph-tinymce@2x.png" alt="TinyMCE Logo" width="110" height="97" />
+  </p>
+
+  <h1 style="text-align: center;">Welcome to the TinyMCE editor demo!</h1>
+
+  <p>
+    Please try out the features provided in this basic example.<br>
+    Note that any <strong>MoxieManager</strong> file and image management functionality in this example is part of our commercial offering – the demo is to show the integration.
+  </p>
+
+  <h2>Got questions or need help?</h2>
+
+  <ul>
+    <li>Our <a href="http://www.tinymce.com/docs/">documentation</a> is a great resource for learning how to configure TinyMCE.</li>
+    <li>Have a specific question? Visit the <a href="http://community.tinymce.com/forum/">Community Forum</a>.</li>
+    <li>We also offer enterprise grade support as part of <a href="www.tinymce.com/pricing">TinyMCE Enterprise</a>.</li>
+  </ul>
+
+  <h2>A simple table to play with</h2>
+
+  <table style="text-align: center;">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Cost</th>
+        <th>Really?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TinyMCE</td>
+        <td>Free</td>
+        <td>YES!</td>
+      </tr>
+      <tr>
+        <td>Plupload</td>
+        <td>Free</td>
+        <td>YES!</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Found a bug?</h2>
+
+  <p>
+    If you think you have found a bug please create an issue on the <a href="http://github.com/tinymce/tinymce/issues">GitHub repo</a> to report it to the developers.
+  </p>
+
+  <h2>Finally ...</h2>
+
+  <p>
+    Don't forget to check out our other product <a href="http://www.plupload.com" target="_blank">Plupload</a>, your ultimate upload solution featuring HTML5 upload support.
+  </p>
+  <p>
+    Thanks for supporting TinyMCE! We hope it helps you and your users create great content.<br>All the best from the TinyMCE team.
+  </p>
+</textarea>
+
+
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+  </script>
+  <!--Modal End-->
+  
+  <!--Unsplash-->
+   <!-- Modal Trigger -->
+  
+  
+  <!--Hover Card-->
+<!--  <div id="comments">-->
+<!--    <a href="#" class="btn">View comments</a>-->
+<!--    <div id="comment-wrap">-->
+<!--      <textarea>Easy! You should check out MoxieManager!</textarea>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<script>-->
+<!--  hover = function() {-->
+<!--    if (!document.body.currentStyle) return;-->
+<!--    var DIVcomments = document.getElementById('comments');-->
+<!--    var DIVcomment_wrap = document.getElementById('comment-wrap');-->
+<!--    DIVcomments.onmouseover = function() {-->
+<!--        DIVcomment_wrap.style.display = 'block';-->
+<!--    }-->
+<!--    DIVcomments.onmouseout = function() {-->
+<!--        DIVcomment_wrap.style.display = 'none';-->
+<!--    }-->
+<!--}-->
+<!--window.onload = hover;-->
+<!--</script>-->
+
+  <!--Hover Card End-->
+
+  <!-- Service -->
+  <!--<div class="container pad-bot" id="service">-->
+  <!--  <div class="row">-->
+  <!--    <div class="col s12 m12 l12 center">-->
+  <!--      <h3 class="service-title">Service</h3>-->
+  <!--    </div>-->
+  <!--  </div>-->
+
+  <!--  <div class="row">-->
+  <!--    <div class="col s12 m4">-->
+  <!--      <div class="icon-block">-->
+  <!--        <div class="center green-text"><i class="material-icons">flash_on</i></div>-->
+  <!--        <h5 class="center">Speeds up development</h5>-->
+
+  <!--        <p>We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>-->
+  <!--      </div>-->
+  <!--    </div>-->
+
+  <!--    <div class="col s12 m4">-->
+  <!--      <div class="icon-block">-->
+  <!--        <div class="center green-text"><i class="material-icons">group</i></div>-->
+  <!--        <h5 class="center">User Experience Focused</h5>-->
+
+  <!--        <p>By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>-->
+  <!--      </div>-->
+  <!--    </div>-->
+
+  <!--    <div class="col s12 m4">-->
+  <!--      <div class="icon-block">-->
+  <!--        <div class="center green-text"><i class="material-icons">settings_applications</i></div>-->
+  <!--        <h5 class="center">Easy to work with</h5>-->
+
+  <!--        <p>We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+
+  <!--</div>-->
+
+  <!-- Portfolio -->
+  <!--<div class="green lighten-5 pad-bot" id="portfolio">-->
+  <!--  <div class="container">-->
+  <!--    <div class="row">-->
+  <!--      <div class="col s12 m12 l12 center">-->
+  <!--        <h3 class="service-title">Portfolio</h3>-->
+  <!--      </div>-->
+  <!--    </div>-->
+
+  <!--    <div class="row">-->
+  <!--      <div class="col s12 m6 l4">-->
+  <!--        <div class="card">-->
+  <!--          <div class="card-image waves-effect waves-block waves-light">-->
+  <!--            <img class="activator" src="img/portfolio-1.png" alt="primo material">-->
+  <!--          </div>-->
+  <!--          <div class="card-content">-->
+  <!--            <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>-->
+  <!--            <p><a href="#" class="light-blue-text text-accent-2">This is a link</a></p>-->
+  <!--          </div>-->
+  <!--          <div class="card-reveal">-->
+  <!--            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>-->
+  <!--            <p>Here is some more information about this product that is only revealed once clicked on.</p>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+
+  <!--      <div class="col s12 m6 l4">-->
+  <!--        <div class="card">-->
+  <!--          <div class="card-image waves-effect waves-block waves-light">-->
+  <!--            <img class="activator" src="img/portfolio-2.png" alt="primo material">-->
+  <!--          </div>-->
+  <!--          <div class="card-content">-->
+  <!--            <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>-->
+  <!--            <p><a href="#" class="light-blue-text text-accent-2">This is a link</a></p>-->
+  <!--          </div>-->
+  <!--          <div class="card-reveal">-->
+  <!--            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>-->
+  <!--            <p>Here is some more information about this product that is only revealed once clicked on.</p>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+
+  <!--      <div class="col s12 m6 l4">-->
+  <!--        <div class="card">-->
+  <!--          <div class="card-image waves-effect waves-block waves-light">-->
+  <!--            <img class="activator" src="img/portfolio-3.png" alt="primo material">-->
+  <!--          </div>-->
+  <!--          <div class="card-content">-->
+  <!--            <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>-->
+  <!--            <p><a href="#" class="light-blue-text text-accent-2">This is a link</a></p>-->
+  <!--          </div>-->
+  <!--          <div class="card-reveal">-->
+  <!--            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>-->
+  <!--            <p>Here is some more information about this product that is only revealed once clicked on.</p>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+
+  <!--      <div class="col s12 m6 l4">-->
+  <!--        <div class="card">-->
+  <!--          <div class="card-image waves-effect waves-block waves-light">-->
+  <!--            <img class="activator" src="img/portfolio-4.png" alt="primo material">-->
+  <!--          </div>-->
+  <!--          <div class="card-content">-->
+  <!--            <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>-->
+  <!--            <p><a href="#" class="light-blue-text text-accent-2">This is a link</a></p>-->
+  <!--          </div>-->
+  <!--          <div class="card-reveal">-->
+  <!--            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>-->
+  <!--            <p>Here is some more information about this product that is only revealed once clicked on.</p>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+
+  <!--      <div class="col s12 m6 l4">-->
+  <!--        <div class="card">-->
+  <!--          <div class="card-image waves-effect waves-block waves-light">-->
+  <!--            <img class="activator" src="img/portfolio-5.png" alt="primo material">-->
+  <!--          </div>-->
+  <!--          <div class="card-content">-->
+  <!--            <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>-->
+  <!--            <p><a href="#" class="light-blue-text text-accent-2">This is a link</a></p>-->
+  <!--          </div>-->
+  <!--          <div class="card-reveal">-->
+  <!--            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>-->
+  <!--            <p>Here is some more information about this product that is only revealed once clicked on.</p>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+
+  <!--      <div class="col s12 m6 l4">-->
+  <!--        <div class="card">-->
+  <!--          <div class="card-image waves-effect waves-block waves-light">-->
+  <!--            <img class="activator" src="img/portfolio-6.png" alt="primo material">-->
+  <!--          </div>-->
+  <!--          <div class="card-content">-->
+  <!--            <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>-->
+  <!--            <p><a href="#" class="light-blue-text text-accent-2">This is a link</a></p>-->
+  <!--          </div>-->
+  <!--          <div class="card-reveal">-->
+  <!--            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>-->
+  <!--            <p>Here is some more information about this product that is only revealed once clicked on.</p>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+
+  <!--  </div>-->
+  <!--</div>-->
+
+  <!-- Team -->
+  <!--<div class="container pad-bot">-->
+  <!--  <div class="row" id="team">-->
+  <!--    <div class="col s12 m12 l12 center">-->
+  <!--      <h3 class="service-title">Team</h3>-->
+  <!--    </div>-->
+  <!--  </div>-->
+
+  <!--  <div class="row">-->
+  <!--    <div class="col s12 m6 l6 team-col">-->
+  <!--      <div class="center">-->
+  <!--        <img src="img/team-1.png" alt="primo material" class="primo-team">-->
+  <!--      </div>-->
+  <!--      <h4 class="green-text text-darken-2">Jane Doe</h4>-->
+  <!--      <h5 class="green-text">Art Director & CEO</h5>-->
+  <!--      <div class="divider"></div>-->
+  <!--      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>-->
+  <!--      <a href="#">-->
+  <!--        <span class="fa-stack fa-lg">-->
+  <!--          <i class="fa fa-circle fa-stack-2x light-blue-text text-accent-2"></i>-->
+  <!--          <i class="fa fa-dribbble fa-stack-1x fa-inverse"></i>-->
+  <!--        </span>-->
+  <!--      </a>-->
+<!--rtrp-->
+  <!--      <a href="#">-->
+  <!--        <span class="fa-stack fa-lg">-->
+  <!--          <i class="fa fa-circle fa-stack-2x light-blue-text text-accent-2"></i>-->
+  <!--          <i class="fa fa-behance fa-stack-1x fa-inverse"></i>-->
+  <!--        </span>-->
+  <!--      </a>-->
+
+  <!--      <a href="#">-->
+  <!--        <span class="fa-stack fa-lg">-->
+  <!--          <i class="fa fa-circle fa-stack-2x light-blue-text text-accent-2"></i>-->
+  <!--          <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>-->
+  <!--        </span>-->
+  <!--      </a>-->
+  <!--    </div>-->
+
+  <!--    <div class="col s12 m6 l6 team-col">-->
+  <!--      <div class="center">-->
+  <!--        <img src="img/team-2.png" alt="primo material" class="primo-team">-->
+  <!--      </div>-->
+  <!--      <h4 class="green-text text-darken-2">John Doe</h4>-->
+  <!--      <h5 class="green-text">Web Developer</h5>-->
+  <!--      <div class="divider"></div>-->
+  <!--      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>-->
+  <!--      <a href="#">-->
+  <!--        <span class="fa-stack fa-lg">-->
+  <!--          <i class="fa fa-circle fa-stack-2x light-blue-text text-accent-2"></i>-->
+  <!--          <i class="fa fa-github fa-stack-1x fa-inverse"></i>-->
+  <!--        </span>-->
+  <!--      </a>-->
+
+  <!--      <a href="#">-->
+  <!--        <span class="fa-stack fa-lg">-->
+  <!--          <i class="fa fa-circle fa-stack-2x light-blue-text text-accent-2"></i>-->
+  <!--          <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>-->
+  <!--        </span>-->
+  <!--      </a>-->
+  <!--    </div>-->
+
+  <!--  </div>-->
+
+  <!--  <div class="row">-->
+
+  <!--    <div class="col s12 m6 l6 team-col">-->
+  <!--      <div class="center">-->
+  <!--        <img src="img/team-3.png" alt="primo material" class="primo-team">-->
+  <!--      </div>-->
+  <!--      <h4 class="green-text text-darken-2">Janie Roe</h4>-->
+  <!--      <h5 class="green-text">Graphic Designer</h5>-->
+  <!--      <div class="divider"></div>-->
+  <!--      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>-->
+  <!--      <a href="#">-->
+  <!--        <span class="fa-stack fa-lg">-->
+  <!--          <i class="fa fa-circle fa-stack-2x light-blue-text text-accent-2"></i>-->
+  <!--          <i class="fa fa-dribbble fa-stack-1x fa-inverse"></i>-->
+  <!--        </span>-->
+  <!--      </a>-->
+
+  <!--      <a href="#">-->
+  <!--        <span class="fa-stack fa-lg">-->
+  <!--          <i class="fa fa-circle fa-stack-2x light-blue-text text-accent-2"></i>-->
+  <!--          <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>-->
+  <!--        </span>-->
+  <!--      </a>-->
+  <!--    </div>-->
+
+  <!--    <div class="col s12 m6 l6 team-col">-->
+  <!--      <div class="center">-->
+  <!--        <img src="img/team-4.png" alt="primo material" class="primo-team">-->
+  <!--      </div>-->
+  <!--      <h4 class="green-text text-darken-2">Johnnie Roe</h4>-->
+  <!--      <h5 class="green-text">Web Designer</h5>-->
+  <!--      <div class="divider"></div>-->
+  <!--      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>-->
+  <!--      <a href="#">-->
+  <!--        <span class="fa-stack fa-lg">-->
+  <!--          <i class="fa fa-circle fa-stack-2x light-blue-text text-accent-2"></i>-->
+  <!--          <i class="fa fa-github fa-stack-1x fa-inverse"></i>-->
+  <!--        </span>-->
+  <!--      </a>-->
+
+  <!--      <a href="#">-->
+  <!--        <span class="fa-stack fa-lg">-->
+  <!--          <i class="fa fa-circle fa-stack-2x light-blue-text text-accent-2"></i>-->
+  <!--          <i class="fa fa-behance fa-stack-1x fa-inverse"></i>-->
+  <!--        </span>-->
+  <!--      </a>-->
+
+  <!--      <a href="#">-->
+  <!--        <span class="fa-stack fa-lg">-->
+  <!--          <i class="fa fa-circle fa-stack-2x light-blue-text text-accent-2"></i>-->
+  <!--          <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>-->
+  <!--        </span>-->
+  <!--      </a>-->
+  <!--    </div>-->
+
+  <!--  </div>-->
+
+  <!--</div>-->
+
+  <footer class="page-footer green" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h6 class="white-text">A <a href="http://www.urrtrp.com" target="blank" style="text-decoration: none !important;">RTRP BRAND</h6></a>
+          <p class="grey-text text-lighten-4">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h6 class="white-text">BlendIt</h6>
+          <ul>
+            <li><a class="white-text" href="#!" target="_blank">Terms & Conditions</a></li>
+            <%= link_to 'Privacy', static_pages_privacy_path %>
+            <li><a class="white-text" href="http://materializecss.com/getting-started.html" target="_blank">Feature Request</a></li>
+            <li><a class="white-text" href="http://www.lbdesigner.it/" target="_blank">Report a Bug</a></li>
+            <!--<li><a class="white-text" href="http://css-tricks.com/snippets/jquery/smooth-scrolling/" target="_blank">Smooth scrolling</a></li>-->
+            <!--<li><a class="white-text" href="http://unsplash.com/" target="_blank">Photos from Unsplash</a></li>-->
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h6 class="white-text">Want to Contribute?</h6>
+          <ul>
+            <li><a class="white-text" href="http://material.google.com/" target="_blank">Browse Repo</a></li>
+            <li><a class="white-text" href="http://material.google.com/style/color.html" target="_blank">Inquire</a></li>
+            <li><a class="white-text" href="http://design.google.com/icons/" target="_blank">Resources</a></li>
+            <li><a class="white-text" href="http://material.google.com/resources/roboto-noto-fonts.html" target="_blank">Credits</a>
+            </li>
+            <!--<li><a class="white-text" href="http://materializecss.com/" target="_blank">Framework authors</a></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Developed by <a class="green-text text-lighten-4" href="http://www.lavail.io/" target="_blank">Lavail.io</a>&nbsp&nbsp Contact Me <a class="green-text text-lighten-4" href="http://www.twitter.com/arisnance" target="_blank">@ArisNance</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/scroll.js"></script>

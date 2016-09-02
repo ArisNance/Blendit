@@ -1,0 +1,9 @@
+<ul id="nav-mobile" class="right hide-on-med-and-down">
+    <!--Edit Profil-->
+       <li class="blend-links"><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+       <li class="blend-links"><%= link_to 'New', new_story_path %></li>
+       <li class="blend-links"><%= link_to 'Blends', posts_path %></li>
+       <li class="blend-links"><%= link_to 'Read Stories', stories_path %></li>
+      </ul>
+      <li  style= "color: black;"><%= @posts == current_user %></li>
+    </div>

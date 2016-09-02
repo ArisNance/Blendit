@@ -1,0 +1,65 @@
+<%= render 'home/gallery' %>
+<body id="blue" style="background-color: rgb(50, 52, 54) !important;">
+<p id="notice"><%= notice %></p>
+<!--Search form-->
+<h1 style="text-align: center;">BlendIt</h1>
+<%= form_tag stories_path, class: "search-form", :method => 'get' do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Type here to Search Stories" %>
+    <%= submit_tag "search", style: "margin-left: 45%; color: black;" %>
+<% end %>
+<!-- Dropdown Trigger -->
+  <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Filter</a>
+  
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><a href="#!">Recent</a></li>
+    <li class="divider"></li>
+    <li><%= link_to 'Blends', posts_path %></li>
+    <li class="divider"></li>
+    <li><a href="#!">BlendIt</a></li>
+  </ul>
+<!--Dropdown end-->
+<!-- Navbar goes here -->
+        <% @stories.each do |story| %>
+      <div class="col s12 m8 l9">
+          <div class="row">
+        <div class="card-panel teal center" id="fcard" style="background-color: #fff !important; ">
+            <span class="time"><%= story.created_at.strftime("%b %d") %></span>
+            <h6><em><a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="<%= story.description %>">Description</a></em></h6>
+          <span style="text-decoration: none !important;"><h2><%= link_to story.title, story %></h2></span>
+          <p><%=raw truncate(story.content, length: 90) %></p>
+          <div class="card-action">
+                <%= link_to edit_story_path(story), id: "story-btn", class: "text-btn", style: "float: right; font-family: 'Rasa'; font-size: 20px; opacity: 0.3;", id: "story-btn" do %>
+                    edit<i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="Edit"></i>
+                <% end %>
+                <br>
+                <%= link_to story, method: :delete, data: { confirm: 'Are you sure?' }, id: "story-btn1", class: "text-btn", style: "float: right; font-family: 'Rasa'; font-size: 20px; opacity: 0.3;" do %>
+                    delete<i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="Delete"></i>
+                <% end %>
+                <br>
+                <!--social data-->
+                <div class="card-action">
+                <%= link_to like_story_path(story), class: "like", method: :put do %>
+                    <i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="Like">thumb_up</i>
+                      <!--<span class="new badge" style="color: #fff; margin-right: 20%;"><%= story.get_upvotes.size %></span>-->
+                      <!--<span class="new badge red" style="color: black; margin-right: 30%;"><%= story.get_downvotes.size %></span>-->
+                      <br>
+                <!--downvote-->
+                <%= link_to unlike_story_path(story), class: "like", method: :put do %>
+                    <i style="display: none;" class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="UnLike">thumb_down</i>
+                    <!--<span class="new badge red" style="color: #fff; margin-right: 20%;"><%= story.get_downvotes.size %></span>-->
+                    <span class="new badge" style="color: black; margin-right: 30%;"><%= story.get_upvotes.size %></span>
+                    
+                <% end %>
+                </div>
+                <!--social data end-->
+                <%= link_to 'New story', new_story_path %>
+            </div>
+        </div>
+      </div>
+      <% end %>
+      <br>
+      
+    </div>
+    <% end %>
+</body>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--Mobile Optimazation-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BlendIt</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <!--Materialize Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Icons end-->
+  <!--Google Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Rasa:400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oxygen|Poppins:300" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oxygen:300" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=The+Girl+Next+Door" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora:700" rel="stylesheet">
+  <!--Fonts End-->
+</head>
+<body>
+
+  
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+  <% if user_signed_in? %>
+     <!--Horizontal FAB Links-->
+      <div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-medium">
+      <i class="large material-icons">perm_identity</i>
+    </a>
+    <br>
+     <a href="#" data-activates="slide-out" class="button-collapse tooltipped" data-position="left" data-delay=".1" data-tooltip="View your Blender"><i class="small material-icons">B</i></a>
+    <ul>
+       <!--Rails Material icons Stories all-->
+      <%= link_to edit_user_registration_path, class: "btn-floating purple", style: "margin-right: 15px;" do %>
+      <i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="Account">settings</i>
+      <% end %>
+       <!--Rails Material icons User Stories all-->
+      <!--<%= link_to @story_path, class: "btn-floating purple" do %>-->
+      <!--<% end %>-->
+      <!--icon Poem end-->
+      
+      <!--Rails Material icons User Stories-->
+      <%= link_to new_story_path, class: "btn-floating green", style: "margin-right: 15px;" do %>
+      <i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="New Story">mode_edit</i>
+      <% end %>
+      <!--icon Story end-->
+      
+      <!--Rails Material icons Poem-->
+      
+      <%= link_to new_post_path, class: "btn-floating purple", style: "margin-right: 5px;" do %>
+      <i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="New Blurrb">note_add</i>
+      <% end %>
+      <!--icon Poem end-->
+    </ul>
+  </div>
+  <!--Horizontal FAB Links End-->
+<% end %>
+<% if user_signed_in? %>
+<ul id="slide-out" class="side-nav">
+    <li><div class="userView">
+      <h3 style="color: black !important;">My Blender</h3>
+      <%= image_tag 'https://source.unsplash.com/category/nature', style: "width: 250px;" %>
+      <!--<a href="#!user"><img class="circle" src="images/yuna.jpg"></a>-->
+      <h4 style="font-size: 15px !important; color: black !important; text-align: center !important;"><%= Time.now.to_datetime.strftime("%b %d %Y") %></h4>
+      <h4 style="font-size: 15px !important; color: black !important; text-align: center !important;"><%= Time.now.strftime("%H:%M:%S") %></h4>
+      <a href="#!"><span class="white-text name" style="color: black !important; text-align: center;">Hello <%= current_user.name %></span></a>
+      <a href="#!"><span class="white-text email"></span></a>
+    </div></li>
+    <li><a href="https://unsplash.com/" target="blank"><i class="material-icons">perm_media</i>View on Unsplash</a></li>
+    <%= render 'home/blender' %>
+    <li><div class="divider"></div></li>
+    <!--<li><a class="subheader">Community</a></li>-->
+    <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" style="margin-bottom: 100px !important;" href="#modal1">BlendIt with Us</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <p style="color:black; font-size: 10px;">BlendIt takes a lot of time to maintain. Help keep us typing.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="http://www.lavail.io" target="new" class=" modal-action modal-close waves-effect waves-green btn-flat">Donate Now</a>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+  </script>
+    
+  </ul>
+  <% end %>
+  <div class="row notes">
+    
+  </div>
+  <!--<a href="#" data-activates="slide-out" class="button-collapse tooltipped" data-position="left" data-delay=".1" data-tooltip="View your Blender"><i class="material-icons">dashboard</i></a>-->
+  <script>
+    // Show sideNav
+  $('.button-collapse').sideNav('show');
+  // Hide sideNav
+  $('.button-collapse').sideNav('hide');
+        
+  </script>
+
+</body>
+<%= render 'home/header' %>
+<%= yield %>
+</html>

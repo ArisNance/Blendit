@@ -1,0 +1,246 @@
+ <head>
+     
+
+     <style>
+         body {
+  background:#f0f0f0;
+  padding:0px;
+  margin:0px;
+  font-family:Arial;
+  font-size:13px;
+  color:#777;
+}
+h1,h2,h3,h4,h5 {
+  margin:0px;
+  padding:0px;
+}
+pre {
+  white-space: pre-line;
+}
+p {
+  line-height:25px;
+  margin:0px;
+}
+a {
+  cursor:pointer;
+  text-decoration:none;
+}
+.menu {
+  background:#2c3e50;
+  height:60px;
+}
+.menu ul {
+  width:1200px;
+  margin:0px auto;
+  padding:0px;
+}
+.menu ul li{
+  float:left;
+  list-style:none;
+  display:inline;
+}
+.menu ul li.right{
+  float:right;
+  font-size:21px;
+}
+.menu ul li.right i{
+  color:#ccc;
+}
+.menu ul li.active a{
+  color:#FFF;
+}
+.menu ul li a{
+  height:60px;
+  line-height:60px;
+  padding:0 10px;
+  display:block;
+  color:#ddd;
+  text-transform:capitalize;
+}
+.menu ul li a:hover{
+  color:#fff;
+}
+.top{ background: #34495e;}
+.top ul{
+  margin: 0px auto;
+  height: 80px;
+  width: 1200px;  
+  padding: 0px;
+}
+.top ul li{
+  height: 80px;
+  line-height: 80px;
+  list-style: none;
+  float: left;
+  color: white;
+  margin-right: 10px;  
+}
+.top ul li.logo a {
+  color:white;
+  text-decoration:none;
+  font-size:25px;
+} 
+.top ul li.right{
+  float:right;
+}
+.top ul li i{
+  color: white;
+  font-size: 22px;
+  line-height:40px;
+}
+.message_holder {
+  background:#fdfdfd;
+  border-bottom:solid 1px #ddd;
+}
+.message_holder .message {
+  width:1200px;
+  height:45px;
+  line-height:45px;
+  margin:0 auto;
+}
+.container {
+  width:1200px;
+  margin: 0 auto;
+  margin-top:20px;
+  position:relative;
+  height;100%;
+}
+#posts {
+  width:1250px;
+  margin: 0 auto;
+  position: relative;
+}
+.post {
+  width:350px;
+  margin: 0 20px 20px 0;
+  float:left;
+  background: #fff;
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.05);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.05);
+  border-radius:3px;
+  float: left;
+}
+.post img{
+  border-radius:3px 3px 0 0;
+  max-width:100%; 
+}
+#posts .post p{
+  line-height: 24px;
+  font-size: 14px;
+  color: #555;
+  font-weight: 400;
+  padding: 10px 12px 12px 12px;
+}
+#more {
+  width:1200px;
+  margin: 0 auto;  
+  padding-top:20px;
+  margin-bottom:20px;
+  position:relative;
+  height:80px;
+}
+.more {
+  background:#2ECC71;
+  padding:15px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  border-radius:50%;
+  display:inline-block;
+  color:#fff;
+  text-align:center;
+  text-transform:uppercase;
+  font-size:11px;
+  margin:0 auto;
+  position:absolute;
+  left:0px;
+  right:0px;
+}
+.more:hover {
+  background: #27AE60
+}
+     </style>
+ </head>
+ <!--Unsplash Ajax-->
+ <div class="top">
+  <ul>
+    <li>Unsplash API</li>
+    <li class="right"><a href="https://dribbble.com/Festus911"><i class="fa fa-dribbble"></i></a></li>
+    <li class="right"><a href="https://twitter.com/FESTUS911"><i class="fa fa-twitter"></i></a></li>
+  </ul>
+</div>
+
+  <div class="message_holder">
+    <div class="message">Unsplash: Free (do whatever you want) high-resolution photos.</div>
+  </div>
+<div class="container" >
+
+<div id="posts" >
+
+  </div>
+ <div id="more">
+<a class="more"><a>
+</div> 
+
+</div>
+<script>
+var client_id = '324ba2a2f1f6e28f7b17fa0bb72af84a7e1d0d1ebf9e5527b7e93be1b327686e';
+var limit = 10;
+
+$(document).ready(function() {
+  var $container = $('#posts');
+  $container.imagesLoaded( function() {
+    $container.masonry({
+      itemSelector: '.post'
+    }); 
+  });
+});
+
+function unsplash(more){
+  $.ajax({
+    url:'https://api.unsplash.com/photos',
+    type:'GET',
+    dataType:'json',
+    data:{
+      client_id:client_id,
+      page:more,
+      per_page:limit
+    },
+    success: function(data){
+      $.each(data, function(i, item) {
+        var image = $("<img>").attr("src",item.urls.small);
+        var link = $("<a target='_blank'>").attr("href",item.links.html).append(image);
+        var name = $("<p>").append("By ",item.user.name);
+        var item = $("<div class='post'>").append(link,name).hide();
+        var $container = $('#posts');
+        $container.append(item).imagesLoaded(function(){ 
+          item.fadeIn(2000);
+          $container.masonry( 'appended', item).masonry();
+        }); 
+
+      });
+      $(".more").attr("href",more).html("More");
+    }
+  });
+}
+
+//Click function to get the next page
+$(".more").click(function(){
+  var page = $(".more").attr('href');
+  page++;
+  unsplash(page);
+  return false;
+});
+//Initial parameter
+//When the value of the more buttons, the function is called again with new page number
+$(".more").change(unsplash(1));
+</script>
+
+
+ <!--Ajax End-->
+ 
+   <!--Unsplash-->
+<script src="/js/unsplash-source.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://rawgithub.com/desandro/masonry/v2.1.08/jquery.masonry.js"></script>
+<script src="https://imagesloaded.desandro.com/imagesloaded.pkgd.js"></script>

@@ -1,0 +1,469 @@
+/* Custom Stylesheet */
+
+
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made by lbdesigner.it
+ *
+ * Based on materializecss.com
+ */
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - -
+   Typography
+   - - - - - - - - - - - - - - - - - - - - - - - */
+p {
+    font-family: 'Rasa', sans-serif;
+    font-size: 25px !important;
+    font-weight: 300 !important;
+    letter-spacing: .5px !important;
+    line-height: 30px !important;
+}
+
+h1 {
+  margin-top: -5%;
+  font-family: 'Oxygen', sans-serif !important;
+  color: white;
+  font-size: 4em;
+}
+
+h2 {
+  font-family: 'Rasa';
+  color: #fff;
+}
+
+@media (max-width:768px) {
+  h1 {
+    font-size: 2.85em;
+  }
+  h2 {
+    font-size: 2.6em;
+  }
+}
+
+h3 {
+  padding-top: 50px;
+  font-family: 'Rasa', serif !important;
+  font-weight: 600 !important;
+  font-size: 4em !important;
+  text-align: center;
+}
+
+.service-title {
+  font-weight: 500;
+}
+
+h6 {
+  font-size: 1.64rem;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - -
+   Home
+   - - - - - - - - - - - - - - - - - - - - - - - */
+#modalwhite {
+  background-color: #fff !important;
+  color: rgb(59, 32, 170) !important;
+  margin-top: 60px;
+  margin-left: 230px;
+}
+
+.intro {
+  height: 100vh;
+  text-align: center;
+}
+
+.btn-floating{
+  background-color: #323436 !important;
+}
+
+.primo-btn {
+  margin-right: 5px;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.btn-large {
+  margin-bottom: 15px;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - -
+   Start
+   - - - - - - - - - - - - - - - - - - - - - - - */
+
+.primo-start-1 {
+  height: 400px;
+  background: url(../img/service-1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.primo-start-2 {
+  height: 400px;
+  background: url(../img/service-2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - -
+   Service
+   - - - - - - - - - - - - - - - - - - - - - - - */
+
+.icon-block {
+  padding: 0 15px;
+}
+
+.icon-block .material-icons {
+  font-size: 3.56rem;
+}
+
+.pad-bot {
+  padding-bottom: 50px;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - -
+   Portfolio
+   - - - - - - - - - - - - - - - - - - - - - - - */
+
+.card:hover {
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - -
+   Team
+   - - - - - - - - - - - - - - - - - - - - - - - */
+
+.team-col {
+  margin-bottom: 30px;
+}
+
+.primo-team {
+  border-radius: 999px;
+  height: 250px;
+  width: auto;
+  -webkit-transition: 0.25s all linear;
+  transition: 0.25s all linear;
+}
+
+.primo-team:hover {
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width:480px) {
+  .primo-team {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.fa-circle {
+  -webkit-transition: 0.25s all linear;
+  transition: 0.25s all linear;
+}
+
+a:hover .fa-circle {
+  color: #80d8ff !important;
+  /* light-blue accent-1 */
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - -
+   Footer
+   - - - - - - - - - - - - - - - - - - - - - - - */
+
+#contact {
+  padding-top: 60px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.greenpic {
+  background:url('storytrees.jpeg') center no-repeat;
+  background-size: cover;
+}
+
+#contact {
+  background-color: #0E0712 !important;
+}
+
+/*Type JS CSS*/
+#type{
+  color: #fff; 
+  font-family: 'Rasa', 'Oxygen', sans-serif;
+  margin: 10px 0 0 10px;
+  white-space: nowrap;
+  width: 30em;
+  animation: type 4s steps(60, end);
+  padding-top: 100px !important;
+  position: absolute;
+  margin-left: 12% !important;
+  font-size: 80px !important;
+  font-weight: 300 !important;
+  letter-spacing: 5px !important;
+}
+
+#type:nth-child(2){
+  animation: type2 8s steps(60, end);
+}
+
+#type a{
+  color: rgba(0, 0, 0, 0.62);
+  text-decoration: none;
+}
+
+#type{
+  margin-top: 30px !important;
+}
+
+#blink{
+  animation: blink 1s infinite;
+}
+
+@keyframes type{ 
+  from { width: 0; } 
+} 
+
+@keyframes type2{
+  0%{width: 0;}
+  50%{width: 0;}
+  100%{ width: 100; } 
+} 
+
+@keyframes blink{
+  to{opacity: .0;}
+}
+
+.offset{
+  padding-bottom: 3%;
+}
+/*Type JS End*/
+
+/*Nav*/
+
+nav {
+  background-color: #323436 !important;
+  margin-top: -2%;
+
+}
+
+.brand {
+    color: #fff;
+    font-family: 'Rasa';
+    font-size: 30px;
+    margin-left: 15px;
+}
+
+nav ul a:hover{
+  text-decoration: none !important;
+  background-color:transparent !important;
+}
+
+nav ul a {
+  display: -moz-box !important;
+  transition: background-color .3s;
+  font-size: .8rem !important;
+  color: #f0f0f0 !important;
+  display: block;
+  padding: 0 15px;
+  cursor: pointer;
+  font-family: 'Poppins' !important;
+  padding-top: 25px !important;
+  letter-spacing: 2px;
+}
+
+
+/*Buttons*/
+.btn, .btn-large {
+  border-radius: 30px !important;
+}
+
+
+/*label*/
+label {
+  font-size: 1rem;
+  color: #333;
+  font-family: cursive;
+  opacity: .3;
+  margin-left: 6px;
+  letter-spacing: 4px;;
+}
+
+.modal.bottom-sheet {
+  max-height: 80% !important;
+}
+
+/*Overlay image text*/
+.primo-start-1 { 
+   position: relative; 
+   width: 100%; /* for IE 6 */
+}
+
+#calm{ 
+  position: absolute;
+  top: 296px;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  font-family: 'Rasa';
+  text-align: center;
+  font-weight: bold;
+  font-size: 35px !important;
+}
+/*Overlay end*/
+
+.button-collapse{
+  margin-left: 7px;
+  color: rgb(32, 197, 121) !important;
+}
+
+/*unlike/dislike*/
+span.badge.new:after{
+  content: "" !important;
+}
+
+.content-show, p{
+  font-size: 35px !important;
+  font-family: 'Rasa' !important;
+  line-height: 40px !important;
+  width: 90%;
+  margin-left: 5% !important;
+}
+
+a{
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: #0089ec;
+  text-decoration: none !important;
+  background-color: transparent;
+}
+
+a:visited{
+  color: #f0f0f0;
+}
+
+.btn-large{
+  background-color: #fff !important;
+  margin-right: 15px;
+}
+
+/*footer text content*/
+.grey-text.text-lighten-4{
+  font-size: 25px !important;
+}
+
+/*post index/story index*/
+text-btn{
+  padding: 10px;
+}
+
+/*upvote/downvote badges*/
+span.badge.new{
+  background-color: #20c570 !important;
+  font-size: 1rem !important;
+  font-family: 'Rasa';
+  border-radius: 15px !important;
+  margin-right: 32% !important;
+}
+span.badge{
+  min-width: 0rem !important;
+}
+
+/*Card Panel*/
+#fcard{
+  margin-top: 5rem !important;
+  color: #323436 !important;
+  border-radius: 15px;
+  float: left;
+  margin-left: 33%;
+  box-shadow: 1px 1px 1px #4caf50;
+  width: 35%;
+}
+
+#fcard, a{ 
+  color: #323436 !important;
+}
+
+strong {
+    font-weight: 300;
+}
+
+/*dropdown-button btn*/
+.dropdown-button{
+  margin-left: 13.7%;
+  position: fixed;
+  background-color: #20c570 !important;
+  opacity: 0.6;
+  margin-top: 15%;
+}
+
+/*dropdown content*/
+.dropdown-content {
+    background-color: #20c570 !important;
+    margin-left: 5% !important;
+    display: none;
+    min-width: 100px;
+    max-height: 650px;
+    overflow-y: auto;
+    opacity: 0;
+    position: fixed !important;
+    z-index: 999;
+    will-change: width, height;
+    top: 54% !important;
+}
+
+.blend-links{
+  float: left !important;
+}
+
+/*Applicaion old/revised buttons links now in _blender*/
+.btn-floating{
+  display: none !important;
+}
+
+.donate{
+  font-size: 15px !important;
+  color: black !important;
+}
+
+.lean-overlay{
+  z-index: 100 !important;
+}
+
+.search-form{
+  position: fixed !important;
+  width: 30% !important;
+  margin-top: -9% !important;
+  margin-left: 2% !important;
+  opacity: 0.6;
+}
+
+/*card-gallery*/
+.card-gallery{
+  width: 20%;
+  margin-right: 5%;
+  /*margin-top: -138%;*/
+  position: fixed;
+  margin-left: 70%;
+}
+
+/*from -123% margin top on home screen*/
+
+.storycontent {
+  text-align: center !important;
+  width: 70%; 
+  margin-left: 15% !important;
+}
