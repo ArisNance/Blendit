@@ -1,4 +1,3 @@
-<%= render 'home/gallery' %>
 <body id="blue" style="background-color: rgb(50, 52, 54) !important;">
 <p id="notice"><%= notice %></p>
 <!--Search form-->
@@ -7,10 +6,10 @@
     <%= text_field_tag :search, params[:search], placeholder: "Type here to Search Stories" %>
     <%= submit_tag "search", style: "margin-left: 45%; color: black;" %>
 <% end %>
-<!-- Dropdown Trigger -->
+ <!--Dropdown Trigger -->
   <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Filter</a>
   
-  <!-- Dropdown Structure -->
+   <!--Dropdown Structure -->
   <ul id='dropdown1' class='dropdown-content'>
     <li><a href="#!">Recent</a></li>
     <li class="divider"></li>
@@ -41,14 +40,14 @@
                 <div class="card-action">
                 <%= link_to like_story_path(story), class: "like", method: :put do %>
                     <i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="Like">thumb_up</i>
-                      <!--<span class="new badge" style="color: #fff; margin-right: 20%;"><%= story.get_upvotes.size %></span>-->
+                      <span class="new badge" style="color: #fff; margin-right: 20%;"><%= story.get_upvotes.size %></span>
                       <!--<span class="new badge red" style="color: black; margin-right: 30%;"><%= story.get_downvotes.size %></span>-->
                       <br>
                 <!--downvote-->
                 <%= link_to unlike_story_path(story), class: "like", method: :put do %>
-                    <i style="display: none;" class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="UnLike">thumb_down</i>
+                    <!--<i style="display: none;" class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="UnLike">thumb_down</i>-->
                     <!--<span class="new badge red" style="color: #fff; margin-right: 20%;"><%= story.get_downvotes.size %></span>-->
-                    <span class="new badge" style="color: black; margin-right: 30%;"><%= story.get_upvotes.size %></span>
+                    <!--<span class="new badge" style="color: black; margin-right: 30%;"><%= story.get_upvotes.size %></span>-->
                     
                 <% end %>
                 </div>

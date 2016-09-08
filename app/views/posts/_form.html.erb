@@ -48,6 +48,10 @@
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
+   <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
   <div class="field">
     <!--<%= f.label :content, class: "tiny-content" %><br>-->
     <%= raw f.text_area :content, class: "editable" %>

@@ -1,0 +1,58 @@
+<!--TinyMCE Demo-->
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<!--TinyMCE End-->
+
+<%= stylesheet_link_tag 'skin.min.css' %>
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "title-show", value: "Feeling froggy? Then type!" %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description, value: "Give me a description..." %>
+  </div>
+  <div class="field">
+    <!--<%= f.label :content, class: "tiny-content" %><br>-->
+    <%= f.text_area :content, class: "editable", value: "Welcome to Scribble. Your journey begins here..." %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "btn-floating btn-large waves-effect waves-light pink", style: "" do %>
+      <i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="Update">spellcheck</i>
+    <% end %>
+  </div>
+<% end %>
+<script>
+  tinymce.init({
+  selector: '.editable',  // change this value according to your HTML
+  plugins: 'advlist autolink link image lists charmap print preview textcolor emoticons fullscreen wordcount',
+  wordcount_cleanregex: /[0-9.(),;:!?%#$?\x27\x22_+=\\/\-]*/g,
+  toolbar: 'forecolor backcolor emoticons fullscreen',
+  height: 400,
+  content_style: "p {font-size: 25px;}"
+});
+</script>
+
+downvote
+ <!--downvote-->
+                <!--<%= link_to unlike_post_path(post), class: "like", method: :put do %>-->
+<!--                    <i style="display: none;" class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="UnLike">thumb_down</i>-->
+                    <!--<span class="new badge red" style="color: #fff; margin-right: 20%;"><%= post.get_downvotes.size %></span>-->
+<!--                    <span class="new badge" style="color: black; margin-right: 30%;"><%= post.get_upvotes.size %></span>-->
+                    
+<!--                <% end %>-->
+<!--                </div>-->
+                <!--social data end-->
+<!--                <%= link_to 'New post', new_post_path %>-->

@@ -1,4 +1,3 @@
-<%= render 'gallery' %>
 <body id="blue" style="background-color: rgb(50, 52, 54) !important;">
 <p id="notice"><%= notice %></p>
 
@@ -6,12 +5,12 @@
 <h1 style="text-align: center;">BlendIt</h1>
 <%= form_tag posts_path, class: "search-form", :method => 'get' do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search Blends" %>
-    <%= submit_tag "search", style: "margin-left: 45%; color: black;" %>
+    <%= submit_tag "search", style: "margin-left: 38%; color: black;" %>
 <% end %>
-<!-- Dropdown Trigger -->
-  <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Filter</a>
-  <%= render 'filter' %>
-  <!-- Dropdown Structure -->
+ <!--Dropdown Trigger -->
+  <!--<a class='dropdown-button btn' href='#' data-activates='dropdown1'>Filter</a>-->
+  <!--<%= render 'filter' %>-->
+   <!--Dropdown Structure -->
   <ul id='dropdown1' class='dropdown-content'>
     <li><a href="#!">Recent</a></li>
     <li class="divider"></li>
@@ -21,48 +20,102 @@
   </ul>
 <!--Dropdown end-->
 <!-- Navbar goes here -->
-        <% @posts.each do |post| %>
-      <div class="col s12 m8 l9">
-          <div class="row">
-        <div class="card-panel teal center" id="fcard" style="background-color: #fff !important; ">
-            <span class="time"><%= post.created_at.strftime("%b %d") %></span>
-              <h6><em><a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="<%= post.description %>">Description</a></em></h6>
-          <span style="text-decoration: none !important;"><h2 ><%= link_to post.title, post %></h2></span>
-          <p><%=raw truncate(post.content, length: 90) %></p>
-          <div class="card-action">
-                <%= link_to edit_post_path(post), id: "post-btn", class: "text-btn", style: "float: right; font-family: 'Rasa'; font-size: 20px; opacity: 0.3;", id: "story-btn" do %>
+<!--        <% @posts.each do |post| %>-->
+<!--      <div class="col s12 m8 l9">-->
+<!--          <div class="row">-->
+<!--        <div class="card-panel teal center" id="fcard" style="background-color: #fff !important; ">-->
+<!--            <span class="time"><%= post.created_at.strftime("%b %d") %></span>-->
+<!--              <h6><em><a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="<%= post.description %>">Description</a></em></h6>-->
+<!--          <span style="text-decoration: none !important;"><h2 ><%= link_to post.title, post %></h2></span>-->
+<!--          <p><%=raw truncate(post.content, length: 90) %></p>-->
+<!--          <div class="card-action">-->
+<!--                <%= link_to edit_post_path(post), id: "post-btn", class: "text-btn", style: "float: right; font-family: 'Rasa'; font-size: 20px; opacity: 0.3;", id: "story-btn" do %>-->
+<!--                    edit<i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="Edit"></i>-->
+<!--                <% end %>-->
+<!--                <br>-->
+<!--                <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' }, id: "post-btn1", class: "text-btn", style: "float: right; font-family: 'Rasa'; font-size: 20px; opacity: 0.3;" do %>-->
+<!--                    delete<i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="Delete"></i>-->
+<!--                <% end %>-->
+<!--                <br>-->
+                <!--social data-->
+<!--                <div class="card-action">-->
+<!--                <%= link_to like_post_path(post), class: "like", method: :put do %>-->
+<!--                    <i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="Like">thumb_up</i>-->
+                      <!--<span class="new badge" style="color: #fff; margin-right: 20%;"><%= post.get_upvotes.size %></span>-->
+                      <!--<span class="new badge red" style="color: black; margin-right: 30%;"><%= post.get_downvotes.size %></span>-->
+<!--                      <br>-->
+                <!--downvote-->
+<!--                <%= link_to unlike_post_path(post), class: "like", method: :put do %>-->
+<!--                    <i style="display: none;" class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="UnLike">thumb_down</i>-->
+                    <!--<span class="new badge red" style="color: #fff; margin-right: 20%;"><%= post.get_downvotes.size %></span>-->
+<!--                    <span class="new badge" style="color: black; margin-right: 30%;"><%= post.get_upvotes.size %></span>-->
+                    
+<!--                <% end %>-->
+<!--                </div>-->
+                <!--social data end-->
+<!--                <%= link_to 'New post', new_post_path %>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <% end %>-->
+<!--      <br>-->
+      
+<!--    </div>-->
+    
+<!--    <% end %>-->
+<!--</body>-->
+<head>
+   <style>
+.grid-item { width: 200px; }
+.grid-item--width2 { width: 400px; }
+.grid{
+    background-color: #3F51B5;
+    width: 30%;
+    float: left;
+    margin-left: 40px;
+    height: 300px;
+    margin-bottom: 2%;
+    margin-top: 300px;
+}
+   </style>
+</head>
+<% @posts.each do |post| %>
+<div class="grid">
+    <%= image_tag post.image.url(:medium) %>
+    <span class="time"><%= post.created_at.strftime("%b %d") %></span>
+  <div class="grid-item"><h2><p class="white-text" style="margin-left: 80% !important;"><%= link_to post.title, post %></p></h2></div>
+  <div class="grid-item grid-item--width2"><a class="tooltipped" data-position="bottom" data-delay="50" style="margin-left: 50%;" data-tooltip="<%= post.description %>">Description</a></div>
+  <div class="grid-item"><p style="margin-left: 80% !important; width: 100%; font-size: 20px !important;"><%=raw truncate(post.content, length: 40) %></p></div>
+      <%= link_to edit_post_path(post), id: "post-btn", class: "text-btn", style: "float: right; font-family: 'Rasa'; font-size: 20px; opacity: 0.3;", id: "story-btn" do %>
                     edit<i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="Edit"></i>
                 <% end %>
                 <br>
                 <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' }, id: "post-btn1", class: "text-btn", style: "float: right; font-family: 'Rasa'; font-size: 20px; opacity: 0.3;" do %>
                     delete<i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="Delete"></i>
-                <% end %>
-                <br>
+<!--                <% end %>-->
+<!--                <br>-->
                 <!--social data-->
                 <div class="card-action">
                 <%= link_to like_post_path(post), class: "like", method: :put do %>
-                    <i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="Like">thumb_up</i>
-                      <!--<span class="new badge" style="color: #fff; margin-right: 20%;"><%= post.get_upvotes.size %></span>-->
-                      <!--<span class="new badge red" style="color: black; margin-right: 30%;"><%= post.get_downvotes.size %></span>-->
-                      <br>
-                <!--downvote-->
-                <%= link_to unlike_post_path(post), class: "like", method: :put do %>
-                    <i style="display: none;" class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="UnLike">thumb_down</i>
-                    <!--<span class="new badge red" style="color: #fff; margin-right: 20%;"><%= post.get_downvotes.size %></span>-->
-                    <span class="new badge" style="color: black; margin-right: 30%;"><%= post.get_upvotes.size %></span>
-                    
-                <% end %>
-                </div>
-                <!--social data end-->
-                <%= link_to 'New post', new_post_path %>
-            </div>
-        </div>
-      </div>
+                    <i class="material-icons tooltipped" data-position="top" data-delay="0.5" data-tooltip="Like" style="margin-left: 5%;">thumb_up</i>
+                      <span class="new badge" style="color: #fff;     margin-right: 93.7% !important; margin-top: 50px;"><%= post.get_upvotes.size %></span>
+<!--                      <br>-->
+               
+<!--            </div>-->
+<!--        </div>-->
+<!--      </div>-->
       <% end %>
-      <br>
-      
-    </div>
-    
-    <% end %>
-</body>
-<%= render 'gallery' %>
+</div>
+<% end %>
+  <script>
+      $('.carousel.carousel-slider').carousel({full_width: true});
+  </script>
+  <script>
+      $('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+  </script>
+  
+   <script src="/path/to/masonry.pkgd.min.js"></script>

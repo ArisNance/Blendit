@@ -11,10 +11,6 @@ class StoriesController < ApplicationController
   end
   
   def index
-    @stories = Story.all.order.reverse.order
-  end
-  
-  def index
     @stories = Story.where(["content LIKE ?", "%#{params[:search]}%"])
   end
 
